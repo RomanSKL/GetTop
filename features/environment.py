@@ -21,7 +21,7 @@ def browser_init(context, test_name):
     :param context: Behave context
     :param test_name: scenario.name
     """
-    context.driver = webdriver.Chrome(executable_path='/Users/skliarovrn/Documents/GetTop/chromedriver')
+    # context.driver = webdriver.Chrome(executable_path='/Users/skliarovrn/Documents/GetTop/chromedriver')
     # context.driver = webdriver.Firefox(executable_path='')
     # context.driver = webdriver.Safari()
 
@@ -37,14 +37,14 @@ def browser_init(context, test_name):
     # context.driver = EventFiringWebDriver(webdriver.Chrome(chrome_options = options), MyListener())
 
     ### for browerstack ###
-    # desired_cap = {
-    #     'browser': 'Chrome',
-    #     'os_version': 'Monterey',
-    #     'os': 'OS X',
-    #     'name': test_name
-    # }
-    # url = f'http://{bs_user}:{bs_pw}@hub-cloud.browserstack.com/wd/hub'
-    # context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
+    desired_cap = {
+        'browser': 'Chrome',
+        'os_version': 'Monterey',
+        'os': 'OS X',
+        'name': test_name
+    }
+    url = f'http://{bs_user}:{bs_pw}@hub-cloud.browserstack.com/wd/hub'
+    context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
 
     # context.driver.maximize_window()
     context.driver.implicitly_wait(5)
@@ -69,8 +69,8 @@ def after_step(context, step):
         # logger.error(f'Step failed: {step}')
         print('\nStep failed: ', step)
         # Mark test case as FAILED on BrowserStack:
-        # context.driver.execute_script(
-        #     'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed", "reason": "Step failed"}}')
+        context.driver.execute_script(
+            'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed", "reason": "Step failed"}}')
 
 
 def after_scenario(context, feature):
