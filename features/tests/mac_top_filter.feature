@@ -26,3 +26,12 @@ Feature: Test for MAC top filter
     When Hover over MAC
     And Click on MacBook Air
     Then Verify MacBook Air page is opened
+
+
+  Scenario: You may also like…
+    Given Open GetTop
+    When Hover over MAC
+    When Click on MacBook Pro 13-inch
+    When Verify You may also like… text is present
+    When Click on link under You may also like…
+    Then Verify correct MacBook page is opened

@@ -25,6 +25,11 @@ def click_air(context):
     context.app.header.click_air()
 
 
+@when('Click on link under You may also like…')
+def click_link_under_you_may_also_like(context):
+    context.app.header.click_link_under_you_may_also_like()
+
+
 @then('Verify all {expected} items under MAC')
 def verify_all_items(context, expected):
     expected = int(expected)
@@ -45,3 +50,15 @@ def verify_pro_16_open(context):
 @then('Verify MacBook Air page is opened')
 def verify_air_open(context):
     context.app.header.verify_air_open()
+
+
+@when('Verify You may also like… text is present')
+def verify_you_may_also_like(context):
+    context.app.header.verify_you_may_also_like()
+
+
+@then('Verify correct MacBook page is opened')
+def verify_correct_macbook_page_is_opened(context):
+    context.app.header.verify_correct_macbook_page_is_opened()
+
+

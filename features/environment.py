@@ -1,5 +1,5 @@
-#  import allure
-#  from allure_commons.types import AttachmentType
+# import allure
+# from allure_commons.types import AttachmentType
 from app.application import Application
 
 from selenium import webdriver
