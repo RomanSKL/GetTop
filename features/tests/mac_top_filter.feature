@@ -1,5 +1,5 @@
 # Created by skliarovrn at 7/9/22
-Feature: Test for MAC top filter
+Feature: Tests for MAC top filter
 
   Scenario: Verify that user can see all items under MAC
     Given Open GetTop
