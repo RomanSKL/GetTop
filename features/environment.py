@@ -21,27 +21,30 @@ def browser_init(context, test_name):
     :param context: Behave context
     :param test_name: scenario.name
     """
-    # context.driver = webdriver.Chrome(executable_path='/Users/skliarovrn/Desktop/automationRoman/python-selenium-automation/chromedriver')
-    # context.driver = webdriver.Firefox(executable_path='')
+    # context.driver = webdriver.Chrome(executable_path='/Users/skliarovrn/Documents/GetTop/chromedriver')
+    # context.driver = webdriver.Firefox(executable_path='/Users/skliarovrn/Documents/GetTop/geckodriver')
     # context.driver = webdriver.Safari()
 
     # HEADLESS MODE ####
     # options = webdriver.ChromeOptions()
     # options.add_argument('--headless')
-    # context.driver = webdriver.Chrome(chrome_options=options, executable_path='/Users/skliarovrn/Desktop/automationRoman/python-selenium-automation/chromedriver')
+    # context.driver = webdriver.Chrome(chrome_options=options, executable_path='/Users/skliarovrn/Documents/GetTop/chromedriver')
 
     ### EventFiringWebDriver - log file ###
     ### for drivers ###
-    context.driver = EventFiringWebDriver(webdriver.Chrome(executable_path='/Users/skliarovrn/Desktop/automationRoman/python-selenium-automation/chromedriver'), MyListener())
+    context.driver = EventFiringWebDriver(webdriver.Chrome(executable_path='/Users/skliarovrn/Documents/GetTop/chromedriver'), MyListener())
     # for headless mode ###
-    # context.driver = EventFiringWebDriver(webdriver.Chrome(chrome_options = options), MyListener())
+    # context.driver = EventFiringWebDriver(webdriver.Chrome(chrome_options=options, executable_path='/Users/skliarovrn/Documents/GetTop/chromedriver'), MyListener())
 
-    ### for browerstack ###
+    ### for browserstack ###
     # desired_cap = {
-    #     'browser': 'Chrome',
-    #     'os_version': 'Monterey',
-    #     'os': 'OS X',
-    #     'name': test_name
+    #     'bstack:options': {
+    #     "os": "OS X",
+    #     "osVersion": "Monterey",
+    #     "sessionName": test_name,
+    #     },
+    #     "browserName": "Chrome",
+    #     "browserVersion": "latest"
     # }
     # url = f'http://{bs_user}:{bs_pw}@hub-cloud.browserstack.com/wd/hub'
     # context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)

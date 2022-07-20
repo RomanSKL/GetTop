@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then, step
+from time import sleep
 
 
 ALL_ITEMS_UNDER_MAC = (By.CSS_SELECTOR, "a[href='https://gettop.us/product-category/macbook/']")
@@ -8,6 +9,7 @@ ALL_ITEMS_UNDER_MAC = (By.CSS_SELECTOR, "a[href='https://gettop.us/product-categ
 @when('Hover over MAC')
 def hover_over_mac(context):
     context.app.main_page.hover_over_mac()
+    sleep(2)
 
 
 @when('Click on MacBook Pro 13-inch')

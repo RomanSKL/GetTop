@@ -4,7 +4,7 @@ from pages.base_page import Page
 
 
 class MainPage(Page):
-    MAC = (By.CSS_SELECTOR, "a[href='https://gettop.us/product-category/macbook/']")
+    MAC = (By.ID, 'menu-item-468')
     CLICK_RIGHT_ARROW = (By.CSS_SELECTOR, "button[class='flickity-button flickity-prev-next-button next']")
     CLICK_LEFT_ARROW = (By.CSS_SELECTOR, "button[class='flickity-button flickity-prev-next-button previous']")
     CLICK_RIGHT_DOTT = (By.CSS_SELECTOR, "li[aria-label='Page dot 2']")
@@ -18,7 +18,7 @@ class MainPage(Page):
 
     def hover_over_mac(self):
         actions = ActionChains(self.driver)
-        mac = self.find_element(*self.MAC)
+        mac = self.wait_for_element_appear(*self.MAC)
         actions.move_to_element(mac)
         actions.perform()
 
